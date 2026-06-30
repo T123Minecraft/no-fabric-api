@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "nofabricapi",
+	"version": "${version}",
+	"name": "No Fabric API",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"T123Minecraft"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/nofabricapi/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.t123minecraft.nofabricapi.NoFabricAPI"
+		],
+		"client": [
+			"com.t123minecraft.nofabricapi.client.NoFabricAPIClient"
+		]
+	},
+	"mixins": [
+		"nofabricapi.mixins.json",
+		{
+			"config": "nofabricapi.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": "*",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
