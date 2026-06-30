@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "nofabricapi",
-	"version": "${version}",
+	"version": "${mod_version}+${mod_loader}_${minecraft_version}",
 	"name": "No Fabric API",
 	"description": "This is a mod. When you install this mod with fabric api, the game will crash.",
 	"authors": [

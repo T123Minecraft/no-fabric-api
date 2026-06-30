@@ -2,6 +2,8 @@ plugins {
 	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 	id 'maven-publish'
 }
+def modLoader = project.properties.getOrDefault('mod_loader', 'fabric')
+def fullVersion = "${project.mod_version}+${modLoader}-${project.minecraft_version}"
 
 version = project.mod_version
 group = project.maven_group
@@ -35,16 +37,22 @@ dependencies {
 }
 
 processResources {
-	def version = project.version
-	inputs.property "version", version
+	inputs.property "mod_version", project.version
+	inputs.property "mod_loader", modLoader
+	inputs.property "minecraft_version", project.minecraft_version
 
 	filesMatching("fabric.mod.json") {
-		expand "version": version
+		expand(
+				"mod_version": project.version,
+				"mod_loader": modLoader,
+				"minecraft_version": project.minecraft_version
+		)
 	}
 }
 
-tasks.withType(JavaCompile).configureEach {
-	it.options.release = 25
+tasks.withType(Jar).configureEach {
+	archiveBaseName = project.name
+	archiveVersion = fullVersion
 }
 
 java {
@@ -58,11 +66,8 @@ java {
 }
 
 jar {
-	def projectName = project.name
-	inputs.property "projectName", projectName
-
 	from("LICENSE") {
-		rename { "${it}_$projectName"}
+		rename { "${it}_${project.name}" }
 	}
 }
 
