@@ -3,7 +3,7 @@ plugins {
 	id 'maven-publish'
 }
 def modLoader = project.properties.getOrDefault('mod_loader', 'fabric')
-def fullVersion = "${project.mod_version}+${modLoader}-${project.minecraft_version}"
+def fullVersion = "${project.mod_version}+${modLoader}_${project.minecraft_version}"
 
 version = project.mod_version
 group = project.maven_group
