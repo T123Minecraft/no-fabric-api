@@ -3,13 +3,13 @@
 	"id": "nofabricapi",
 	"version": "${version}",
 	"name": "No Fabric API",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "This is a mod. When you install this mod with fabric api, the game will crash.",
 	"authors": [
 		"T123Minecraft"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/T123Minecraft/no-fabric-api",
+		"issues": "https://github.com/T123Minecraft/no-fabric-api/issues"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/nofabricapi/icon.png",
